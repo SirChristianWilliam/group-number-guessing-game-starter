@@ -5,6 +5,7 @@ function handleReady() {
   loadItems('none'); //On page load, show the empty information 
   $('#myForm').on('submit',submitOn);
 }
+
 //Global variable objects
 const pastGuesses = [];
 
@@ -19,45 +20,47 @@ let highOrLow = {
 //Global variable objects.
 
 //loadItems is our render
-function loadItems(win) {
+let coolio= "";
 
-  let winEnum = {
+function loadItems(win) {
+   let winEnum = {
     'winP1':0,
     'winP2':1,
     'none':2
   }
 
-  let i=0;
-
+if(win == 'winP1') {
+  coolio = "SUP";
+}else if (win == 'winP2') {
+  coolio = "HAAAAAY";
+}else {
+  coolio = "";
+}
   $('#rowContent').text('');
-      for(; i<pastGuesses.length; ++i/* let x of pastGuesses */) {
+      for(let i=0; i<pastGuesses.length; ++i/* let x of pastGuesses */) {
+
         $('#rowContent').append(`
         <tr id="${i}">
           <td>${pastGuesses[i].player1}</td>
           <td>${pastGuesses[i].player2}</td>
-          <td class="p1HL"></td>
-          <td class="p2HL"></td>
-          <td class="response"></td>
+          <td id="coolVar"> ${coolio}</td>
+          <td>Hello </td>
         </tr>
         `);
       }
 
-  
   switch(winEnum[win]) {
     case 0: 
       console.log('PLAYER ONE WINNER');
-      $(`#${i}.p2HL`).append(highOrLow.player2);
-      $(`#${i}.response`).append(winner.player1);
-      break;
+       break;
     case 1: 
       console.log('PLAYER TWO WINNER');
-      $(`#${i}.p1HL`).append(highOrLow.player1);
-      $(`#${i}.response`).append(winner.player2);
+ 
       break;
     default: 
       console.log('NO ONE WINS');
-      $(`#${i}.p1HL`).append(highOrLow.player1);
-      $(`#${i}.p2HL`).append(highOrLow.player2);
+ 
+      
   }
 
   $('#chris').empty();
