@@ -30,6 +30,16 @@ app.use(bodyParser.urlencoded({extended:true}))
 // Serve up static files (HTML, CSS, Client JS)
 app.use(express.static('server/public'));
 
+app.get('/info', (req, res) => {
+  console.log('IN /info');
+  res.send(whoWon);
+
+  whoWon = {
+    player1: false,
+    player2: false
+  }
+})
+
 app.get('/getInfo', (req,res) => {
   console.log('IN /getInfo');
   res.send(HL);
@@ -39,8 +49,8 @@ app.get('/getInfo', (req,res) => {
 app.post('/info', (req, res) => {
   console.log('IN FIRST POST', req.body);
   console.log("THE RANDOM NUMBER IS",randO)
-  players.player1 = req.body.player1;
-  players.player2 = req.body.player2;
+  players.player1 = Number(req.body.player1);
+  players.player2 = Number(req.body.player2);
   compareWinners();
 
   res.sendStatus(201);
@@ -63,17 +73,17 @@ function randomGen(min, max) {
 // compare() compare guesses by players to random number
 function compareWinners() {
   console.log("ARE WE IN COMPARE WINNERS")
-  if(players.player1 === randO) {
+  console.log(players.player1, randO);
+  if(players.player1 == randO) {
     whoWon.player1 = true;
-  } else if(players.player2 === randO) {
+  } else if(players.player2 == randO) {
     whoWon.player2 = true;
   } else {
     HL.player1 = players.player1 > randO ? 'high' : 'low';
     HL.player2 = players.player2 > randO ? 'high' : 'low';
   }
-  }
-
-
+  console.log(players, whoWon, HL);
+}
 
 // reset() reset game state to new start
 function reset() {
