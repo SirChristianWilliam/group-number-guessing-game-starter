@@ -13,8 +13,19 @@
 <body>
     <h1>YOUR GAME HERE!</h1>
     <form id="myForm">
-      <input type="text" id="chris" placeholder="Chris' Guess"> 
-      <input type="text" id="adam" placeholder="Adam's Guess">
+      <input type="number" id="chris" placeholder="Chris' Guess"> 
+      <input type="number" id="adam" placeholder="Adam's Guess">
+      <button id="addGuess">ADD</button>
     </form>
+    <h5> Past guesses: </h5>
+    <div id="pastContainer">
+      Append past guesses
+    </div>
+    <div id = "container">
+      Player 1 guess: 0 <br>
+      Player 2 guess: 0 <br>
+    </div>
+    <p id="guesses"> 0 </p>
+
 </body>
 </html>
