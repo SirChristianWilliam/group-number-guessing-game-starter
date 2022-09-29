@@ -48,7 +48,7 @@ if(win == 'winP1') {
         </tr>
         `);
       }
-
+      
   switch(winEnum[win]) {
     case 0: 
       console.log('PLAYER ONE WINNER');
