@@ -24,6 +24,8 @@ AKA Client Demands...
 
 All random number stuff should happen on the server: Generation of the random number upon game start as well as comparisons between guesses and the random correct answer. 
 
+ANSWER : The seed of the random number can be figured out and abused to get the right answer on the first guess every game. This also keeps from allowing the client to call the value of the random number on the client to get the right number. Basically to deter cheating and give a fair game to both players.
+
 Take a moment to discuss with your team members why this is something that a client may demand.
 
 Once you get it working, style it up, yo!

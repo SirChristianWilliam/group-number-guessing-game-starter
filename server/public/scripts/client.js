@@ -125,6 +125,9 @@ function useWinner() {
       setHighLow();
     }
   })
+  .catch((err) => {
+    console.log('Something went wrong! useWinner GET');
+  })
 }
 
 function setHighLow() {
