@@ -41,12 +41,8 @@ function loadItems(win) {
         </tr>
         `);
       }
-<<<<<<< HEAD
-      
-=======
-
   
->>>>>>> parent of 8aa2939 (checkpoint branch 3)
+      
   switch(winEnum[win]) {
     case 0: 
       console.log('PLAYER ONE WINNER');
