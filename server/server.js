@@ -1,4 +1,5 @@
 const express = require('express');
+const randomMod = require('./randomMod');
 const bodyParser = require('body-parser')
 const app = express();
 const PORT = 5000;
@@ -17,7 +18,7 @@ let HL = {
 }
 
 // keep random number to be guessed
-let randO = randomGen(1, 25);
+let randO = randomMod(1, 25);
 
 // This must be added before GET & POST routes.
 app.use(bodyParser.urlencoded({extended:true}))
@@ -43,7 +44,7 @@ app.get('/getInfo', (req,res) => {
 // GET END
 
 // POST START
-app.post('/info', (req, res) => {
+app.post('/info', (req, res) => { // $('#myForm').on('submit',submitOn);
   console.log('IN FIRST POST', req.body);
   console.log("THE RANDOM NUMBER IS",randO)
   players.player1 = Number(req.body.player1);
@@ -55,7 +56,8 @@ app.post('/info', (req, res) => {
 
 app.post('/reset', (req, res) => {
   console.log('RESETTING GAME', req.body);
-  reset();
+
+  reset(req.body.max);
 
   res.sendStatus(201);
 })
@@ -70,9 +72,7 @@ app.listen(PORT, () => {
 // FUNCTIONS
 
 // randomGen() randomly generate a number between 1-25
-function randomGen(min, max) {
-  return Math.round(Math.random() * (max - min) + min);
-}
+//NOW IN SEPARATE MODULE
 
 // compare() compare guesses by players to random number
 function compareWinners() {
@@ -92,6 +92,6 @@ function compareWinners() {
 }
 
 // reset() reset game state to new start
-function reset() {
-  randO = randomGen(1, 25);
+function reset(max) {
+  randO = randomMod(1, max);
 }

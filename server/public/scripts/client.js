@@ -52,15 +52,22 @@ function loadItems(win) {
     switch(winEnum[win]) {
     case 0: 
       console.log('PLAYER ONE WINNER');
-      $(`#response`).append('<h1>PLAYER ONE WINNER</h1>');
-      $('#addGuess').prop('disabled', true);
-      $('#resetBtn').prop('disabled', false);
+      $(`#response`).append('<h1>PLAYER ONE WINNER!!!!!</h1>');
+
+      $('#dancing').removeClass('hideIt');
+      $('#dancing').addClass('shown');
+      // $('#addGuess').prop('disabled', true);
+      // $('#resetBtn').prop('disabled', false);
       break;
     case 1: 
       console.log('PLAYER TWO WINNER');
-      $(`#response`).append('<h1>PLAYER TWO WINNER</h2>');
-      $('#addGuess').prop('disabled', true);
-      $('#resetBtn').prop('disabled', false);
+      $(`#response`).append('<h1>PLAYER TWO WINNER!!!!!</h2>');
+
+       $('#dancing').removeClass('hideIt');
+      $('#dancing').addClass('shown');
+
+      // $('#addGuess').prop('disabled', true);
+      // $('#resetBtn').prop('disabled', false);
       break;
     default: 
       console.log('NO ONE WINS');
@@ -78,7 +85,7 @@ function loadItems(win) {
 
 }
 
-function submitOn(evt) {
+function submitOn(evt) { // $('#myForm').on('submit',submitOn);
   evt.preventDefault();
 
   let guesses = {
@@ -107,7 +114,10 @@ function submitOn(evt) {
   .catch(err => {
     console.log("POST /info error", err);
   })
-}
+
+  $('#chris').val('');
+  $('#adam').val('');
+} // END SUBMITON()
 
 function useWinner() {
   $.ajax({
@@ -124,6 +134,9 @@ function useWinner() {
     else {
       setHighLow();
     }
+  })
+  .catch((err) => {
+    console.log('Something went wrong! useWinner GET');
   })
 }
 
@@ -143,13 +156,18 @@ function setHighLow() {
 }
 
 function resetClient() {
+  $('#dancing').addClass('hideIt');
 
   $.ajax({
     url: '/reset',
-    method: 'POST'
+    method: 'POST',
+    data: {
+      max: $('#numRange').val()
+    }
   })
     .then((res) => {
       console.log('Resetting game!', res);
+    
     })
     .catch((err) => {
       console.log('Something went wrong! resetClient', err);
@@ -178,12 +196,18 @@ function resetClient() {
     Player 1 guess: 0 <br>
     Player 2 guess: 0 <br>
   `)
-
+$('.reflection').text('');
+$('.reflection').append(`
+  Max Number: ${$('#numRange').val()}
+`)
   $('#response').empty();
   $('#rowContent').empty();
 
-  $('#addGuess').prop('disabled', false);
-  $('#resetBtn').prop('disabled', true);
+  // $('#addGuess').prop('disabled', false);
+  // $('#resetBtn').prop('disabled', true);
+
+  $('#chris').val('');
+  $('#adam').val('');
 
   loadItems('none');
 }

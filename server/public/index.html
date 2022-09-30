@@ -11,15 +11,38 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>YOUR GAME HERE!</h1>
+    <header id="header">
+    <h1>&#9760 STRANGER GUESSES &#9760</h1>
+    </header>
+
     <form id="myForm">
-      <input type="number" id="chris" placeholder="Chris' Guess"> 
-      <input type="number" id="adam" placeholder="Adam's Guess">
+      <input type="range" id="numRange" min="10" max="100"/><br>
+      <p class="reflection">Max Number:25</p>
+      <input type="number" id="chris" required placeholder="Chris' Guess"> 
+      <input type="number" id="adam" required placeholder="Adam's Guess">
+      <br><br>
       <button id="addGuess">ADD</button>
     </form>
-    <button id="resetBtn" disabled>RESET</button>
-    <h5> Past guesses: </h5>
-    <table id="pastContainer">
+
+    <div id="resetter">
+    <button id="resetBtn" >RESET</button>
+      </div>
+      <div id="guessesContainer">
+        <div id="guesses">
+          Player 1 guess: 0 <br>
+          Player 2 guess: 0 <br>
+        </div>
+      </div>
+    <div id="roundsResponse">
+        <div id="rounds">
+          <!-- append guesses-->
+        </div>
+    
+        <div id="response">
+          <!-- append win/try again-->
+        </div>
+    </div>
+     <table id="pastContainer">
       <tr>
         <th>P1</th>
         <th>P2</th>
@@ -27,20 +50,13 @@
         <th>P2 High/Low?</th>
       </tr>
       <tbody id="rowContent">
-
+          <!-- append content-->
       </tbody>
 
     </table>
-    <div id="guesses">
-      Player 1 guess: 0 <br>
-      Player 2 guess: 0 <br>
-    </div>
-    <div id="rounds">
-      
-    </div>
-    <div id="response">
+    <h2 id="pastGuesses"> Past guesses: &#8679 &#8679 &#8679 </h2>
 
-    </div>
-
+  
+    <div id="dancing" class="hideIt" style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="350" src="https://giphy.com/embed/C7IZbZf6zfRkpGlnpc/video" width="480"></iframe></div>
 </body>
 </html>
