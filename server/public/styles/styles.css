@@ -135,8 +135,29 @@ h1 {
     position: relative;
  }
 
+ .reflection {
+    color:white;
+ }
 
- 
+ #numRange {
+    -webkit-appearance: none;
+    width:300px;
+     background-image:linear-gradient(to bottom, orange,black);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+ #numRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-image:radial-gradient(black,orange);
+    border:1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 
 
 

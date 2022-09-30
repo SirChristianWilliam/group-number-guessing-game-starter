@@ -196,7 +196,10 @@ function resetClient() {
     Player 1 guess: 0 <br>
     Player 2 guess: 0 <br>
   `)
-
+$('.reflection').text('');
+$('.reflection').append(`
+  Max Number: ${$('#numRange').val()}
+`)
   $('#response').empty();
   $('#rowContent').empty();
 

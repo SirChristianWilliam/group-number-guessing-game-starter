@@ -56,7 +56,8 @@ app.post('/info', (req, res) => {
 
 app.post('/reset', (req, res) => {
   console.log('RESETTING GAME', req.body);
-  reset();
+
+  reset(req.body.max);
 
   res.sendStatus(201);
 })
@@ -91,6 +92,6 @@ function compareWinners() {
 }
 
 // reset() reset game state to new start
-function reset() {
-  randO = randomMod(1, 25);
+function reset(max) {
+  randO = randomMod(1, max);
 }
