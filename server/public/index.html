@@ -12,12 +12,13 @@
 </head>
 <body>
     <header id="header">
-    <h1>STRANGER GUESSES</h1>
+    <h1>&#9760 STRANGER GUESSES &#9760</h1>
     </header>
 
     <form id="myForm">
-      <input type="number" id="chris" placeholder="Chris' Guess"> 
-      <input type="number" id="adam" placeholder="Adam's Guess">
+      <input type="range" id="numRange" min="0" max="100"/><br><br>
+      <input type="number" id="chris" required placeholder="Chris' Guess"> 
+      <input type="number" id="adam" required placeholder="Adam's Guess">
       <br><br>
       <button id="addGuess">ADD</button>
     </form>
@@ -37,7 +38,7 @@
       </tbody>
 
     </table>
-    <h4 id="pastGuesses"> Past guesses: &#8679 </h4>
+    <h2 id="pastGuesses"> Past guesses: &#8679 &#8679 &#8679 </h2>
 
   <div id="guessesContainer">
     <div id="guesses">

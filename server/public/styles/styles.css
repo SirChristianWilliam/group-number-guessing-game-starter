@@ -6,7 +6,7 @@ body {
     padding:0;
 }
 * {
- }
+  }
 
  button {
     border:1px solid black;
@@ -24,7 +24,7 @@ table {
     box-shadow:0px -5px 15px white;
   }
 header {
-    background-color: black;
+    background-image:linear-gradient(to bottom,black,rgb(23, 21, 21));
     color:rgb(245, 26, 6);
     text-align:center;
     padding:15px;
@@ -54,15 +54,16 @@ h1 {
     text-align: center;
  }
  th {
-    background-color: black;
-    padding:20px;
+    background-image:linear-gradient(to bottom,black,rgb(23, 21, 21));   
+     padding:20px;
     text-decoration: underline;
  }
 
  #pastGuesses {
-    color: rgb(164, 214, 3);
+    color: rgb(115 226 232);
     margin-left:30px;
- }
+    text-decoration: underline;
+  }
 
  #guessesContainer {
      text-align: center;

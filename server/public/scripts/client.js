@@ -160,11 +160,14 @@ function resetClient() {
 
   $.ajax({
     url: '/reset',
-    method: 'POST'
-
+    method: 'POST',
+    data: {
+      max: $('#numRange').val()
+    }
   })
     .then((res) => {
       console.log('Resetting game!', res);
+    
     })
     .catch((err) => {
       console.log('Something went wrong! resetClient', err);
