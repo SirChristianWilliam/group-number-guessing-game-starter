@@ -85,7 +85,7 @@ function loadItems(win) {
 
 }
 
-function submitOn(evt) {
+function submitOn(evt) { // $('#myForm').on('submit',submitOn);
   evt.preventDefault();
 
   let guesses = {
@@ -117,7 +117,7 @@ function submitOn(evt) {
 
   $('#chris').val('');
   $('#adam').val('');
-}
+} // END SUBMITON()
 
 function useWinner() {
   $.ajax({

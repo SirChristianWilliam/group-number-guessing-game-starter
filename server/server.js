@@ -44,7 +44,7 @@ app.get('/getInfo', (req,res) => {
 // GET END
 
 // POST START
-app.post('/info', (req, res) => {
+app.post('/info', (req, res) => { // $('#myForm').on('submit',submitOn);
   console.log('IN FIRST POST', req.body);
   console.log("THE RANDOM NUMBER IS",randO)
   players.player1 = Number(req.body.player1);
