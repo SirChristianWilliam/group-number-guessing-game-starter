@@ -17,36 +17,30 @@
       <input type="number" id="adam" placeholder="Adam's Guess">
       <button id="addGuess">ADD</button>
     </form>
+    <button id="resetBtn" disabled>RESET</button>
     <h5> Past guesses: </h5>
     <table id="pastContainer">
       <tr>
-        <th>
-          P1
-        </th>
-        <th>
-          P2
-        </th>
-        <th id="amountDiff">
-          P1 High/Low?
-        </th>
-        <th>
-          P2 High/Low?
-        </th>
-        <th id="Response">
-          Winner
-        </th>
+        <th>P1</th>
+        <th>P2</th>
+        <th>P1 High/Low?</th>
+        <th>P2 High/Low?</th>
       </tr>
       <tbody id="rowContent">
-      Append past guesses
 
       </tbody>
 
     </table>
-    <div id = "container">
+    <div id="guesses">
       Player 1 guess: 0 <br>
       Player 2 guess: 0 <br>
     </div>
-    <p id="guesses"> 0 </p>
+    <div id="rounds">
+      
+    </div>
+    <div id="response">
+
+    </div>
 
 </body>
 </html>

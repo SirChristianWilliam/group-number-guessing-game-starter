@@ -16,11 +16,6 @@ let HL = {
   player2: "low"
 }
 
-// track number of guesses made
-let guesses = {
-  totalGuesses: 0
-}
-
 // keep random number to be guessed
 let randO = randomGen(1, 25);
 
@@ -30,6 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 // Serve up static files (HTML, CSS, Client JS)
 app.use(express.static('server/public'));
 
+// GET START
 app.get('/info', (req, res) => {
   console.log('IN /info');
   res.send(whoWon);
@@ -44,6 +40,7 @@ app.get('/getInfo', (req,res) => {
   console.log('IN /getInfo');
   res.send(HL);
 })
+// GET END
 
 // POST START
 app.post('/info', (req, res) => {
@@ -52,6 +49,13 @@ app.post('/info', (req, res) => {
   players.player1 = Number(req.body.player1);
   players.player2 = Number(req.body.player2);
   compareWinners();
+
+  res.sendStatus(201);
+})
+
+app.post('/reset', (req, res) => {
+  console.log('RESETTING GAME', req.body);
+  reset();
 
   res.sendStatus(201);
 })
@@ -72,20 +76,22 @@ function randomGen(min, max) {
 
 // compare() compare guesses by players to random number
 function compareWinners() {
-  console.log("ARE WE IN COMPARE WINNERS")
-  console.log(players.player1, randO);
+
   if(players.player1 == randO) {
     whoWon.player1 = true;
-  } else if(players.player2 == randO) {
-    whoWon.player2 = true;
-  } else {
-    HL.player1 = players.player1 > randO ? 'high' : 'low';
-    HL.player2 = players.player2 > randO ? 'high' : 'low';
   }
+
+  if(players.player2 == randO) {
+    whoWon.player2 = true;
+  }
+
+  HL.player1 = players.player1 > randO ? 'high' : 'low';
+  HL.player2 = players.player2 > randO ? 'high' : 'low';
+  
   console.log(players, whoWon, HL);
 }
 
 // reset() reset game state to new start
 function reset() {
-  // 
+  randO = randomGen(1, 25);
 }
