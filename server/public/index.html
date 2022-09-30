@@ -11,15 +11,21 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>YOUR GAME HERE!</h1>
+    <header id="header">
+    <h1>STRANGER GUESSES</h1>
+    </header>
+
     <form id="myForm">
       <input type="number" id="chris" placeholder="Chris' Guess"> 
       <input type="number" id="adam" placeholder="Adam's Guess">
+      <br><br>
       <button id="addGuess">ADD</button>
     </form>
-    <button id="resetBtn" disabled>RESET</button>
-    <h5> Past guesses: </h5>
-    <table id="pastContainer">
+
+    <div id="resetter">
+    <button id="resetBtn" >RESET</button>
+      </div>
+     <table id="pastContainer">
       <tr>
         <th>P1</th>
         <th>P2</th>
@@ -27,20 +33,27 @@
         <th>P2 High/Low?</th>
       </tr>
       <tbody id="rowContent">
-
+          <!-- append content-->
       </tbody>
 
     </table>
+    <h4 id="pastGuesses"> Past guesses: &#8679 </h4>
+
+  <div id="guessesContainer">
     <div id="guesses">
       Player 1 guess: 0 <br>
       Player 2 guess: 0 <br>
     </div>
+  </div>
+<div id="roundsResponse">
     <div id="rounds">
-      
+      <!-- append guesses-->
     </div>
+
     <div id="response">
-
+      <!-- append win/try again-->
     </div>
-
+</div>
+    <div id="dancing" class="hideIt" style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="350" src="https://giphy.com/embed/C7IZbZf6zfRkpGlnpc/video" width="480"></iframe></div>
 </body>
 </html>

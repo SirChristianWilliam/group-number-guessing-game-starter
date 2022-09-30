@@ -1,5 +1,142 @@
-table, th, tbody, td{
+
+
+body {
+    background-image: linear-gradient(to right,green,black,orange);
+    margin:0;
+    padding:0;
+}
+* {
+ }
+
+ button {
     border:1px solid black;
+    border-radius:25px;
+    cursor:pointer;
+ }
+table, th, tbody, td{
+    border:1px solid rgb(0, 0, 0);
     padding:10px;
     border-collapse: collapse;
+ }
+table {
+    width:100%;
+    color:white;
+    box-shadow:0px -5px 15px white;
+  }
+header {
+    background-color: black;
+    color:rgb(245, 26, 6);
+    text-align:center;
+    padding:15px;
+    margin-bottom:30px;
+    text-shadow:0px -5px 10px green, -5px 0px 20px yellow;
+text-decoration: overline underline;
+    box-shadow: 0px 5px 15px white;
 }
+h1 {
+    font-size:50px;
+}
+
+#myForm {
+      padding:20px;
+      text-align: center;
+    
+}
+
+#resetter {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    margin-bottom:25px;
+ }
+
+ td {
+    text-align: center;
+ }
+ th {
+    background-color: black;
+    padding:20px;
+    text-decoration: underline;
+ }
+
+ #pastGuesses {
+    color: rgb(164, 214, 3);
+    margin-left:30px;
+ }
+
+ #guessesContainer {
+     text-align: center;
+     position: relative;
+    z-index: 2;
+ }
+ #guesses {
+    font-size:25px;
+    color:white;
+    text-shadow:0px 4px 5px orange, 0px -4px 5px black,
+    4px 0px 5px orange, -4px 0px 5px black;
+
+ }
+ #rowContent tr:nth-child(even) {
+     background-image: linear-gradient(to right,black,orange);
+ }
+ #rowContent tr:nth-child(odd) {
+    background-image: linear-gradient(to right,orange,black);
+}
+ input {
+    width:200px;
+    height:30px;
+    border:1px solid black;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow:0px 0px 10px rgb(222, 222, 222);
+
+  }
+
+  ::placeholder {
+    color:rgba(255,0,0,.5);
+    font-style: italic;
+  }
+  #chris:hover, #adam:hover {
+    background-color: lightgrey;
+  }
+  button:hover {
+    outline: 2px solid red;
+    outline-offset: 3px;
+  }
+  #dancing {
+    position:absolute;
+    top:50%;
+    left:30%;
+    z-index:1;
+        }
+#roundsResponse {
+    text-align: center;
+    color:white;
+    text-shadow:0px 4px 5px orange, 0px -4px 5px black,
+    4px 0px 5px orange, -4px 0px 5px black;
+    position: relative;
+    z-index: 2;
+}
+.shown {
+    visibility: visible;
+}
+.hideIt {
+    visibility:hidden;
+}
+
+#response {
+    color:black;
+    z-index:2;
+    text-shadow: 2px 0px 5px orange, 0px 2px 5px white,
+    -2px 0px 5px red, 0px -2px 5px green;
+    text-decoration: underline;
+    transform: rotate(5deg);
+    position: relative;
+ }
+
+
+ 
+
+
+
+

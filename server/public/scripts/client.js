@@ -52,15 +52,22 @@ function loadItems(win) {
     switch(winEnum[win]) {
     case 0: 
       console.log('PLAYER ONE WINNER');
-      $(`#response`).append('<h1>PLAYER ONE WINNER</h1>');
-      $('#addGuess').prop('disabled', true);
-      $('#resetBtn').prop('disabled', false);
+      $(`#response`).append('<h1>PLAYER ONE WINNER!!!!!</h1>');
+
+      $('#dancing').removeClass('hideIt');
+      $('#dancing').addClass('shown');
+      // $('#addGuess').prop('disabled', true);
+      // $('#resetBtn').prop('disabled', false);
       break;
     case 1: 
       console.log('PLAYER TWO WINNER');
-      $(`#response`).append('<h1>PLAYER TWO WINNER</h2>');
-      $('#addGuess').prop('disabled', true);
-      $('#resetBtn').prop('disabled', false);
+      $(`#response`).append('<h1>PLAYER TWO WINNER!!!!!</h2>');
+
+       $('#dancing').removeClass('hideIt');
+      $('#dancing').addClass('shown');
+
+      // $('#addGuess').prop('disabled', true);
+      // $('#resetBtn').prop('disabled', false);
       break;
     default: 
       console.log('NO ONE WINS');
@@ -107,6 +114,9 @@ function submitOn(evt) {
   .catch(err => {
     console.log("POST /info error", err);
   })
+
+  $('#chris').val('');
+  $('#adam').val('');
 }
 
 function useWinner() {
@@ -146,10 +156,12 @@ function setHighLow() {
 }
 
 function resetClient() {
+  $('#dancing').addClass('hideIt');
 
   $.ajax({
     url: '/reset',
     method: 'POST'
+
   })
     .then((res) => {
       console.log('Resetting game!', res);
@@ -185,8 +197,11 @@ function resetClient() {
   $('#response').empty();
   $('#rowContent').empty();
 
-  $('#addGuess').prop('disabled', false);
-  $('#resetBtn').prop('disabled', true);
+  // $('#addGuess').prop('disabled', false);
+  // $('#resetBtn').prop('disabled', true);
+
+  $('#chris').val('');
+  $('#adam').val('');
 
   loadItems('none');
 }
